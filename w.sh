@@ -1,11 +1,11 @@
 #!/bin/bash
+USERID=$(id -u)
+if [ $USERID -ne 0 ]
+then
 
-NUMBER=$1
+ echo "ERROR: You must have sudo access to run this script"
 
-if [ $NUMBER -gt 100 ]
-then 
- echo "Given number is greater than 100"
- else 
-  echo "given number is less than or equal to 100"
-  fi
-  
+fi
+apt update -y
+apt install mysqlll
+apt install nginx -y
